@@ -1,1 +1,0 @@
-# smart-school-management-analytics
