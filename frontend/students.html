@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - School Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>School System</h2>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="students.html" class="active">Students</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="attendance.html">Attendance</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <header>
+                <h1>Students</h1>
+                <button class="btn-primary" onclick="showAddModal()">Add Student</button>
+            </header>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search students...">
+            </div>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Admission No</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Guardian</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTable">
+                    <tr><td colspan="6">Loading...</td></tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    
+    <!-- Add Student Modal -->
+    <div id="addModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add New Student</h2>
+            <form id="addStudentForm">
+                <input type="text" name="admission_number" placeholder="Admission Number" required>
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="date" name="date_of_birth" required>
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <input type="text" name="guardian_name" placeholder="Guardian Name">
+                <input type="tel" name="guardian_phone" placeholder="Guardian Phone">
+                <input type="date" name="enrollment_date" required>
+                <button type="submit" class="btn-primary">Add Student</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
