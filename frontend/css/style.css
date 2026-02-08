@@ -311,3 +311,135 @@ header h1 {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   ADDITIONAL STYLES FOR SIGNUP PAGE
+   Add this to your existing style.css
+   ======================================== */
+
+/* Form Footer (for signup/login links) */
+.form-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.form-footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.form-footer a:hover {
+    color: #5568d3;
+    text-decoration: underline;
+}
+
+/* Success Message */
+.success {
+    background: #27ae60;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.success.hidden {
+    display: none;
+}
+
+/* Small helper text */
+.form-group small {
+    display: block;
+    color: #7f8c8d;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Checkbox styling */
+.form-group label input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+/* Select dropdown */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Form validation styles */
+input:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+
+/* Password strength indicator (optional enhancement) */
+.password-strength {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.password-strength.weak {
+    color: #e74c3c;
+}
+
+.password-strength.medium {
+    color: #f39c12;
+}
+
+.password-strength.strong {
+    color: #27ae60;
+}
+
+/* Loading state for buttons */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Mobile responsive adjustments for signup */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    .login-box h1 {
+        font-size: 24px;
+    }
+
+    .login-box h2 {
+        font-size: 20px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
