@@ -36,4 +36,6 @@ def create_app():
 if __name__ == '__main__':
     app = create_app()
     app.run(debug=True, port=5000)
-
+    if existing_email:
+        return jsonify({'error': 'Email already exists'}), 409 
+    
