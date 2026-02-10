@@ -1,14 +1,14 @@
 // Signup functionality for School Management System
 const API_URL = 'http://localhost:5000/api';
 
-// Get form elements
+// Get form elements.
 const signupForm = document.getElementById('signupForm');
 const signupBtn = document.getElementById('signupBtn');
 const errorMessage = document.getElementById('error-message');
 const successMessage = document.getElementById('success-message');
 
-// Show error message
-function showError(message) {
+// Show error message   
+function showError(message) {  //message is a parameter
     errorMessage.textContent = message;
     errorMessage.classList.remove('hidden');
     successMessage.classList.add('hidden');
