@@ -1,13 +1,13 @@
-// Signup functionality for School Management System
+//backend server address
 const API_URL = 'http://localhost:5000/api';
 
-// Get form elements.
+// Hey browser, give me access to these HTML elements so I can control them.
 const signupForm = document.getElementById('signupForm');
 const signupBtn = document.getElementById('signupBtn');
 const errorMessage = document.getElementById('error-message');
 const successMessage = document.getElementById('success-message');
 
-// Show error message   
+// Show error message
 function showError(message) {  //message is a parameter
     errorMessage.textContent = message;
     errorMessage.classList.remove('hidden');
@@ -73,8 +73,8 @@ function validateForm(formData) {
 
 // Handle form submission
 signupForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    hideMessages();
+    e.preventDefault(); // Prevent default form submission
+    hideMessages(); // Clear previous messages
 
     // Disable submit button
     signupBtn.disabled = true;
