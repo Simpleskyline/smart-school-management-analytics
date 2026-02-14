@@ -13,12 +13,13 @@ function removeToken() {
     localStorage.removeItem('user');
 }
 
-function checkAuth() {
+// Check if user is authenticated
+/*function checkAuth() {
     const token = getToken();
     if (!token) {
         window.location.href = 'login.html';
     }
-}
+} */
 
 function logout() {
     removeToken();
