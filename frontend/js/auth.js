@@ -1,13 +1,17 @@
+// backend server address
 const API_URL = 'http://localhost:5000/api';   
 
+//gets the saved JWT token from local storage, which is used to authenticate API requests
 function getToken() {
     return localStorage.getItem('access_token');
 }
 
+// saves the JWT token to local storage after successful login, allowing the user to stay authenticated across page reloads and sessions
 function setToken(token) {
     localStorage.setItem('access_token', token);
 }
 
+// removes the JWT token from local storage, effectively logging the user out and requiring them to log in again to access protected resources
 function removeToken() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('user');
@@ -21,23 +25,27 @@ function removeToken() {
     }
 } */
 
+    //  This function checks if the user is authenticated by verifying the presence of a JWT token in local storage. If the token is missing, it redirects the user to the login page. This function can be called on protected pages to ensure that only authenticated users can access them.
 function logout() {
     removeToken();
     window.location.href = 'login.html';
 }
 
-// Login form handler
+// This event listener waits for the DOM to fully load, then attaches a submit event handler to the login form. When the form is submitted, it prevents the default form submission behavior, collects the username and password from the input fields, and sends a POST request to the backend API to authenticate the user. If the login is successful, it saves the JWT token and user information in local storage and redirects to the dashboard. If there is an error, it displays an appropriate error message to the user.
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     
+    // NEW: Handle login form submission
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            // Collect form data
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorDiv = document.getElementById('error-message');
             
+            // Clear previous error message
             try {
                 const response = await fetch(`${API_URL}/auth/login`, {
                     method: 'POST',
