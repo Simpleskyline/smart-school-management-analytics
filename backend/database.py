@@ -8,12 +8,14 @@ def get_db():
     if 'db' not in g:
         try:
             g.db = mysql.connector.connect(
-                host=current_app.config['MYSQL_HOST'],
-                user=current_app.config['MYSQL_USER'],
-                password=current_app.config['MYSQL_PASSWORD'],
-                database=current_app.config['MYSQL_DB'],
-                port=current_app.config['MYSQL_PORT']
-            )
+    host=current_app.config['MYSQL_HOST'],
+    user=current_app.config['MYSQL_USER'],
+    password=current_app.config['MYSQL_PASSWORD'],
+    database=current_app.config['MYSQL_DB'],
+    port=current_app.config['MYSQL_PORT'],
+    autocommit=True
+        )
+
         except Exception as e:
             logger.error(f"Database error: {e}")
             return None

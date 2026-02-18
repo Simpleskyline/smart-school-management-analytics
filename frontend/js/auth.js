@@ -18,6 +18,7 @@ function removeToken() {
 }
 
 // Check if user is authenticated
+// Redirect to login page if not
 /*function checkAuth() {
     const token = getToken();
     if (!token) {
@@ -25,7 +26,7 @@ function removeToken() {
     }
 } */
 
-    //  This function checks if the user is authenticated by verifying the presence of a JWT token in local storage. If the token is missing, it redirects the user to the login page. This function can be called on protected pages to ensure that only authenticated users can access them.
+    // when user logs out, it removes token and returns to login page
 function logout() {
     removeToken();
     window.location.href = 'login.html';
@@ -38,14 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // NEW: Handle login form submission
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+            e.preventDefault(); //stops the browseer from reloading the page
             
             // Collect form data
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorDiv = document.getElementById('error-message');
             
-            // Clear previous error message
+            // Clear previous error 
+            // sends login request to backend
             try {
                 const response = await fetch(`${API_URL}/auth/login`, {
                     method: 'POST',
@@ -55,15 +57,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const data = await response.json();
                 
+                /* if login is successful,
+                    saves JWT token, saves user data and redirects to dashboard
+                */
                 if (response.ok) {
                     setToken(data.access_token);
                     localStorage.setItem('user', JSON.stringify(data.user));
                     window.location.href = 'dashboard.html';
-                } else {
+                } 
+                
+                /* if login fails,
+                    shows error message
+                */
+                else {
                     errorDiv.textContent = data.error || 'Login failed';
                     errorDiv.classList.remove('hidden');
                 }
-            } catch (error) {
+            } 
+            
+            /* if backend is down,
+                it displays 'connection error'            
+            */
+
+            catch (error) {
                 errorDiv.textContent = 'Connection error';
                 errorDiv.classList.remove('hidden');
             }
@@ -71,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// API call helper
+// helps you call any protected API route
 async function apiCall(endpoint, method = 'GET', data = null) {
     const token = getToken();
     const options = {
@@ -89,6 +105,9 @@ async function apiCall(endpoint, method = 'GET', data = null) {
     try {
         const response = await fetch(`${API_URL}${endpoint}`, options);
         
+        /*if token is expired, invalid or missing,
+            it logs user out automatically
+        */
         if (response.status === 401) {
             logout();
             return null;

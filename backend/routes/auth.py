@@ -69,8 +69,9 @@ def register():
     password_hash = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()).decode()
     
     execute_query(
-        "INSERT INTO users (username, email, password_hash, role) VALUES (%s, %s, %s, %s)",
-        (data['username'], data['email'], password_hash, 'student')
-    )
+    "INSERT INTO users (username, email, password_hash, role) VALUES (%s, %s, %s, %s)",
+    (data['username'], data['email'], password_hash, 'student'),
+    commit=True
+)
     
     return jsonify({'message': 'User registered successfully'}), 201
