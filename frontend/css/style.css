@@ -100,7 +100,7 @@ header {
 }
 
 header h1 {
-    color: #2c3e50;
+    color: #030303;
 }
 
 /* Stats Grid */
@@ -112,14 +112,14 @@ header h1 {
 }
 
 .stat-card {
-    background: white;
+    background: #667eea;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .stat-card h3 {
-    color: #7f8c8d;
+    color: #f7f3f3;
     font-size: 14px;
     margin-bottom: 10px;
 }
@@ -127,7 +127,7 @@ header h1 {
 .stat-number {
     font-size: 32px;
     font-weight: bold;
-    color: #2c3e50;
+    color: #111111;
 }
 
 /* Charts */
@@ -146,7 +146,7 @@ header h1 {
 
 .chart-card h3 {
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: #020202;
 }
 
 /* Form */
@@ -218,7 +218,7 @@ header h1 {
 }
 
 .data-table thead {
-    background: #2c3e50;
+    background: #090909;
     color: white;
 }
 
@@ -312,16 +312,11 @@ header h1 {
     }
 }
 
-/* ========================================
-   ADDITIONAL STYLES FOR SIGNUP PAGE
-   Add this to your existing style.css
-   ======================================== */
-
 /* Form Footer (for signup/login links) */
 .form-footer {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #0a0a0a;
     text-align: center;
 }
 
@@ -367,14 +362,14 @@ header h1 {
 /* Checkbox styling */
 .form-group label input[type="checkbox"] {
     width: auto;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 /* Select dropdown */
 .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #191818;
     border-radius: 5px;
     font-size: 14px;
     background: white;
@@ -383,7 +378,7 @@ header h1 {
 
 .form-group select:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #0a0a0a;
 }
 
 /* Form validation styles */
@@ -402,7 +397,7 @@ input:valid:not(:placeholder-shown) {
 }
 
 .password-strength.weak {
-    color: #e74c3c;
+    color: #ee240e;
 }
 
 .password-strength.medium {
@@ -426,7 +421,7 @@ button:disabled {
     }
 
     .login-box h1 {
-        font-size: 24px;
+        font-size: 34px;
     }
 
     .login-box h2 {

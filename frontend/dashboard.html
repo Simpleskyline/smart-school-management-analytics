@@ -11,8 +11,10 @@
 
 <body>
     <div class="container">
+
         <nav class="sidebar">
             <h2>School System</h2>
+
             <ul>
                 <li><a href="dashboard.html" class="active">Dashboard</a></li>
                 <li><a href="students.html">Students</a></li>
@@ -24,6 +26,7 @@
         </nav>
         
         <main class="content">
+            
             <header>
                 <h1>Dashboard</h1>
                 <div class="user-info">
@@ -32,29 +35,36 @@
             </header>
             
             <div class="stats-grid">
+
                 <div class="stat-card">
                     <h3>Total Students</h3>
                     <p class="stat-number" id="totalStudents">0</p>
                 </div>
+
                 <div class="stat-card">
                     <h3>Total Teachers</h3>
                     <p class="stat-number" id="totalTeachers">0</p>
                 </div>
+
                 <div class="stat-card">
                     <h3>Active Classes</h3>
                     <p class="stat-number" id="totalClasses">0</p>
                 </div>
+
                 <div class="stat-card">
                     <h3>Today's Attendance</h3>
                     <p class="stat-number" id="todayAttendance">0%</p>
                 </div>
+
             </div>
             
             <div class="charts-grid">
+
                 <div class="chart-card">
                     <h3>Attendance Trend</h3>
                     <canvas id="attendanceChart"></canvas>
                 </div>
+
                 <div class="chart-card">
                     <h3>Fee Collection</h3>
                     <canvas id="feeChart"></canvas>
